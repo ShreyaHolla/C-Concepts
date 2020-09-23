@@ -1,0 +1,42 @@
+
+The max_element() algorithm returns an iterator that denotes the maximum element in a sequence. If the sequence contains more than one copy of the element, the iterator points to its first occurrence. The optional argument comp defines a function object that can be used in place of operator<().
+
+Algorithm max_element() returns the first iterator i in the range [start, finish) such that for any iterator j in the same range either of the following conditions hold:
+
+!(*i < *j)
+
+or
+
+comp(*i, *j) == false.
+
+Complexity
+Exactly max((finish - start) - 1, 0) applications of the corresponding comparisons are done for max_element().
+template 
+ForwardIterator max_element (ForwardIterator first, ForwardIterator last);
+
+first: Forward iterator pointing to the beginning of the range.
+last: Forward iterator pointing to the end of the range.
+
+Return Value: It returns a pointer to the largest 
+element in the range, and in case if there are more than 
+one such element, then it points to the first one.
+
+It points to the last in case the range is empty.
+
+/ C++ program to demonstrate the use of std::max_element 
+#include <iostream> 
+#include <algorithm> 
+using namespace std; 
+int main() 
+{ 
+    int v[] = { 'a', 'c', 'k', 'd', 'e', 'f', 'h' }; 
+  
+    // Finding the maximum value between the first and the 
+    // fourth element 
+  
+    int* i1; 
+    i1 = std::max_element(v, v + 4); 
+  
+    cout << char(*i1) << "\n"; 
+    return 0; 
+} 
